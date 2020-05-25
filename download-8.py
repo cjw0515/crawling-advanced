@@ -13,3 +13,17 @@ html = """
 </div>
 </body></html>
 """
+
+soup = BeautifulSoup(html, 'html.parser')
+h1 = soup.select("div#main > h1")
+print(h1) # type: list
+
+for a in h1:
+    print(a.string)
+
+h1 = soup.select_one("div#main > h1")
+print(h1.string)
+
+list_li = soup.select("div#main > ul.lecs > li")
+for li in list_li:
+    print("li >>>", li.string)
